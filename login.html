@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logowanie | System ewidencji cmentarza</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="naglowek-strony">
+      <div class="naglowek-strony__wewnetrzny">
+        <a class="marka-serwisu" href="/index.html">System ewidencji cmentarza</a>
+        <nav class="nawigacja-glowna" aria-label="Nawigacja główna">
+          <a class="zakladka" href="/index.html#wyszukiwarka">Wyszukiwarka</a>
+          <a class="zakladka" href="/index.html#mapa">Mapa</a>
+          <a class="zakladka zakladka--aktywna" href="/login.html">Panel zarządcy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="kontener kontener--logowanie">
+      <section class="sekcja sekcja--logowanie">
+        <div class="sekcja__naglowek sekcja__naglowek--srodek">
+          <div>
+            <p class="nadtytul">Logowanie</p>
+            <h1>Panel zarządcy</h1>
+          </div>
+          <p class="opis-glowny opis-glowny--jasny">
+            Zaloguj się, aby przejść do edycji danych grobów.
+          </p>
+        </div>
+
+        <form class="formularz-logowania" id="formularz-logowania">
+          <label class="pole-formularza">
+            <span>Login</span>
+            <input id="login" type="text" autocomplete="username" required />
+          </label>
+          <label class="pole-formularza">
+            <span>Hasło</span>
+            <input id="haslo" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="przycisk" type="submit">Zaloguj</button>
+        </form>
+
+        <p class="komunikat" id="komunikat-logowania"></p>
+      </section>
+    </main>
+
+    <script type="module">
+      const formularz = document.querySelector("#formularz-logowania");
+      const komunikat = document.querySelector("#komunikat-logowania");
+
+      if (localStorage.getItem("auth") === "true") {
+        window.location.replace("/admin.html");
+      }
+
+      formularz.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const login = document.querySelector("#login").value.trim();
+        const haslo = document.querySelector("#haslo").value;
+
+        if (login === "admin" && haslo === "admin123") {
+          localStorage.setItem("auth", "true");
+          window.location.replace("/admin.html");
+          return;
+        }
+
+        komunikat.textContent = "Nieprawidłowy login lub hasło.";
+        komunikat.dataset.wariant = "blad";
+      });
+    </script>
+  </body>
+</html>

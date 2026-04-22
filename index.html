@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System ewidencji cmentarza</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="naglowek-strony">
+      <div class="naglowek-strony__wewnetrzny">
+        <a class="marka-serwisu" href="/index.html">System ewidencji cmentarza</a>
+        <nav class="nawigacja-glowna" aria-label="Nawigacja główna">
+          <a class="zakladka zakladka--aktywna" href="#wyszukiwarka">Wyszukiwarka</a>
+          <a class="zakladka" href="#mapa">Mapa</a>
+          <a class="zakladka" href="/admin.html">Panel zarządcy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="kontener">
+      <section class="wprowadzenie">
+        <p class="nadtytul">Strona główna</p>
+        <h1>Wyszukiwanie grobów i zarządzanie danymi offline</h1>
+        <p class="opis-glowny opis-glowny--jasny">
+          System działa lokalnie w przeglądarce. Kliknięcie wyniku lub pola na mapie pokazuje
+          szczegóły i umożliwia szybką edycję danych.
+        </p>
+      </section>
+
+      <section class="sekcja" id="wyszukiwarka">
+        <div class="sekcja__naglowek">
+          <div>
+            <p class="nadtytul">Wyszukiwarka</p>
+            <h2>Wyszukiwanie osób i lokalizacji grobów</h2>
+          </div>
+        </div>
+
+        <form class="siatka-pol" id="formularz-filtrow">
+          <label class="pole-formularza">
+            <span>Imię i nazwisko</span>
+            <input id="szukaj-imie" type="search" placeholder="Wpisz imię i nazwisko" />
+          </label>
+          <label class="pole-formularza">
+            <span>Sektor</span>
+            <select id="filtr-sektor">
+              <option value="">Wszystkie sektory</option>
+            </select>
+          </label>
+          <label class="pole-formularza">
+            <span>Rząd</span>
+            <select id="filtr-rzad">
+              <option value="">Wszystkie rzędy</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="pasek-informacyjny">
+          <strong id="licznik-wynikow">0 wyników</strong>
+          <button class="link-akcji" id="wyczysc-filtry" type="button">Wyczyść filtry</button>
+        </div>
+
+        <div class="lista-wynikow" id="lista-wynikow"></div>
+        <p class="tekst-pomocniczy">
+          <a class="link-akcji" href="#">Nie znalazłeś osoby? Zgłoś do kancelarii</a>
+        </p>
+      </section>
+
+      <section class="sekcja" id="mapa">
+        <div class="sekcja__naglowek">
+          <div>
+            <p class="nadtytul">Mapa sektorów</p>
+            <h2>Rozmieszczenie grobów według sektorów i rzędów</h2>
+          </div>
+          <p class="opis-sekcji">Kliknij wynik lub pole na mapie, aby zobaczyć i edytować dane.</p>
+        </div>
+
+        <div class="uklad-mapy">
+          <div class="siatka-sektorow" id="mapa-grid"></div>
+          <aside class="karta-szczegolow" id="szczegoly-grobu">
+            <p class="nadtytul">Szczegóły grobu</p>
+            <h3>Wybierz grób</h3>
+            <p class="tekst-pomocniczy">
+              Po wskazaniu wyniku lub pola na mapie zobaczysz pełne dane i opcje edycji.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

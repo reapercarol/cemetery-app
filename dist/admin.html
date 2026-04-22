@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System ewidencji cmentarza</title>
+    <script type="module" crossorigin src="/assets/admin-BOitODoZ.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/style-BCQzVWXB.js">
+    <link rel="modulepreload" crossorigin href="/assets/store-BCj69SNw.js">
+    <link rel="stylesheet" crossorigin href="/assets/style-BWNLM0KC.css">
+  </head>
+  <body>
+    <header class="naglowek-strony">
+      <div class="naglowek-strony__wewnetrzny">
+        <a class="marka-serwisu" href="/index.html">System ewidencji cmentarza</a>
+        <nav class="nawigacja-glowna" aria-label="Nawigacja główna">
+          <a class="zakladka" href="/index.html#wyszukiwarka">Wyszukiwarka</a>
+          <a class="zakladka" href="/index.html#mapa">Mapa</a>
+          <a class="zakladka zakladka--aktywna" href="/admin.html">Panel zarządcy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="kontener">
+      <section class="wprowadzenie">
+        <p class="nadtytul">Panel zarządcy</p>
+        <h1>Zarządzanie wpisami offline</h1>
+        <p class="opis-glowny opis-glowny--jasny">
+          Dane są zapisywane lokalnie w przeglądarce. Możesz dodawać osoby, edytować istniejące
+          wpisy i usuwać je bez użycia backendu.
+        </p>
+      </section>
+
+      <section class="sekcja">
+        <div class="sekcja__naglowek">
+          <div>
+            <p class="nadtytul">Panel zarządcy</p>
+            <h2>Rejestr grobów</h2>
+          </div>
+          <div class="grupa-przyciskow">
+            <button class="przycisk przycisk--jasny" id="przycisk-wyloguj" type="button">Wyloguj</button>
+            <button class="przycisk" id="przycisk-dodaj" type="button">Dodaj osobę</button>
+            <a class="przycisk przycisk--jasny" href="/index.html">Przejdź do wyszukiwarki</a>
+          </div>
+        </div>
+
+        <p class="komunikat" id="komunikat-admin"></p>
+
+        <section class="edytor ukryty" id="sekcja-edytora">
+          <div class="sekcja__naglowek sekcja__naglowek--wewnetrzny">
+            <div>
+              <p class="nadtytul">Formularz</p>
+              <h3 id="tytul-edytora">Nowa osoba</h3>
+            </div>
+            <button class="przycisk przycisk--jasny" id="anuluj-edycje" type="button">Zamknij formularz</button>
+          </div>
+
+          <form class="siatka-pol siatka-pol--admin" id="formularz-grobu">
+            <input id="grob-id" type="hidden" />
+            <label class="pole-formularza">
+              <span>Imię</span>
+              <input id="imie" type="text" required />
+            </label>
+            <label class="pole-formularza">
+              <span>Nazwisko</span>
+              <input id="nazwisko" type="text" required />
+            </label>
+            <label class="pole-formularza">
+              <span>Data urodzenia</span>
+              <input id="dataUrodzenia" type="date" required />
+            </label>
+            <label class="pole-formularza">
+              <span>Data zgonu</span>
+              <input id="dataZgonu" type="date" required />
+            </label>
+            <label class="pole-formularza">
+              <span>Sektor</span>
+              <input id="sektor" type="text" maxlength="2" required />
+            </label>
+            <label class="pole-formularza">
+              <span>Rząd</span>
+              <input id="rzad" type="text" required />
+            </label>
+            <label class="pole-formularza">
+              <span>Numer grobu</span>
+              <input id="numerGrobu" type="text" required />
+            </label>
+            <div class="grupa-przyciskow">
+              <button class="przycisk" type="submit">Zapisz</button>
+              <button class="przycisk przycisk--jasny" id="wyczysc-formularz" type="button">Wyczyść formularz</button>
+            </div>
+          </form>
+        </section>
+
+        <div class="tabela-wrapper">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Imię i nazwisko</th>
+                <th>Data urodzenia</th>
+                <th>Data zgonu</th>
+                <th>Sektor</th>
+                <th>Rząd</th>
+                <th>Numer grobu</th>
+                <th>Akcje</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-grobow"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sekcja">
+        <div class="sekcja__naglowek">
+          <div>
+            <p class="nadtytul">Struktura cmentarza</p>
+            <h2>Sektory i rzędy</h2>
+          </div>
+          <p class="opis-sekcji">Dodawaj sektory oraz przypisane do nich rzędy.</p>
+        </div>
+
+        <form class="formularz-struktury" id="formularz-sektora">
+          <label class="pole-formularza">
+            <span>Nowy sektor</span>
+            <input id="nowy-sektor" type="text" maxlength="2" placeholder="Np. D" required />
+          </label>
+          <button class="przycisk" type="submit">Dodaj sektor</button>
+        </form>
+
+        <div class="siatka-struktury" id="lista-sektorow"></div>
+      </section>
+    </main>
+
+  </body>
+</html>

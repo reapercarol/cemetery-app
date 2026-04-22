@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logowanie | System ewidencji cmentarza</title>
+    <script type="module" crossorigin src="/assets/login-Xpn2ipjF.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/style-BCQzVWXB.js">
+    <link rel="stylesheet" crossorigin href="/assets/style-BWNLM0KC.css">
+  </head>
+  <body>
+    <header class="naglowek-strony">
+      <div class="naglowek-strony__wewnetrzny">
+        <a class="marka-serwisu" href="/index.html">System ewidencji cmentarza</a>
+        <nav class="nawigacja-glowna" aria-label="Nawigacja główna">
+          <a class="zakladka" href="/index.html#wyszukiwarka">Wyszukiwarka</a>
+          <a class="zakladka" href="/index.html#mapa">Mapa</a>
+          <a class="zakladka zakladka--aktywna" href="/login.html">Panel zarządcy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="kontener kontener--logowanie">
+      <section class="sekcja sekcja--logowanie">
+        <div class="sekcja__naglowek sekcja__naglowek--srodek">
+          <div>
+            <p class="nadtytul">Logowanie</p>
+            <h1>Panel zarządcy</h1>
+          </div>
+          <p class="opis-glowny opis-glowny--jasny">
+            Zaloguj się, aby przejść do edycji danych grobów.
+          </p>
+        </div>
+
+        <form class="formularz-logowania" id="formularz-logowania">
+          <label class="pole-formularza">
+            <span>Login</span>
+            <input id="login" type="text" autocomplete="username" required />
+          </label>
+          <label class="pole-formularza">
+            <span>Hasło</span>
+            <input id="haslo" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="przycisk" type="submit">Zaloguj</button>
+        </form>
+
+        <p class="komunikat" id="komunikat-logowania"></p>
+      </section>
+    </main>
+
+  </body>
+</html>
